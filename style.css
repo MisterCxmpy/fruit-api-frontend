@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Ubuntu&display=swap");
+
+html {
+    margin: 0;
+    background: rgb(102, 165, 193);
+    font-family: "Inter", sans-serif;
+}
+
+#fruitSection {
+    width: max-content;
+    padding-right: 50px;
+    background: rgb(218, 181, 80);
+    border-radius: 15px;
+    position:absolute;
+    top:0;
+    left:0;
+    margin: 5px;
+}
+
+#fruitSection ul {
+    list-style: none;
+    cursor: pointer;;
+}
+
+#fruitInput {
+    margin: auto;
+    display: block;
+    width: 50%;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 2rem;
+    margin-top: 15px;
+    border-color: rgb(136, 193, 217);
+}
+
+#submit {
+    width: 25%;
+    height: 50px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border-color: rgb(136, 193, 217);
+    font-size: 1.5rem;
+}
+
+img {
+    object-fit: cover;
+    width: 350px;
+    transition: all 0.2s ease;
+}
+
+img:hover {
+    scale: 1.1;
+}
+
+#inputSection {
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+}
+
+#nutritionSection img {
+    margin: auto;
+    display: block;
+    border-radius: 15px;
+}

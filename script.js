@@ -1,9 +1,9 @@
 const inputSection = document.querySelector("#inputSection form");
 const fruitList = document.querySelector("#fruitSection ul");
-const fruitNutrition = document.querySelector("#nutritionSection p");
-const fruitImage = document.querySelector("#fruitImage")
+const fruitNutrition = document.querySelector("#fruitSection p");
+const fruitImage = document.querySelector("#fruitImage");
 
-const API_KEY = "<API-KEY>";
+const API_KEY = "33986181-dc0bcbe2d695046bbc943844e";
 let calories = 0;
 
 inputSection.addEventListener("submit", extractFruit);
@@ -23,11 +23,9 @@ function addFruit(fruit) {
 
   li.textContent = fruit.name;
 
-  li.addEventListener(
-    "click",
-    () => {
+  li.addEventListener("click",() => {
       li.remove();
-      fruitNutrition.textContent = `Total calories: ${(calories -=
+      fruitNutrition.textContent = `Total Calories: ${(calories -=
         fruit.nutritions.calories)}`;
     },
     { once: true }
@@ -43,35 +41,37 @@ function addImage(image) {
 }
 
 function getCalories(fruit) {
-  fruitNutrition.textContent = `Total calories: ${(calories +=
+  fruitNutrition.textContent = `Total Calories: ${(calories +=
     fruit.nutritions.calories)}`;
 }
 
 async function fetchFruitData(fruit) {
   try {
-    const resp = await fetch(`https://fruity-api.onrender.com/fruits/${fruit}`);
+    const resp = await fetch(`https://fruit-api-3q7l.onrender.com/fruits/${fruit}`);
     if (resp.ok) {
       const data = await resp.json();
       addFruit(data);
     } else {
-      throw `Error: http status code = ${resp.status}`
+      throw `Error: http status code = ${resp.status}`;
     }
-  } catch(e) {
-    console.log(e)
+  } catch (e) {
+    console.log(e);
   }
 }
 
 async function fetchImgData(fruit) {
   try {
-    const resp = await fetch(`https://pixabay.com/api/?q=${fruit}+fruit&key=${API_KEY}`);
+    const resp = await fetch(
+      `https://pixabay.com/api/?q=${fruit}+fruit&key=${API_KEY}`
+    );
     if (resp.ok) {
       const data = await resp.json();
-      addImage(data)
+      addImage(data);
     } else {
-      throw `Error: http status code = ${resp.status}`
+      throw `Error: http status code = ${resp.status}`;
     }
-  } catch(e) {
-    console.log(e)
+  } catch (e) {
+    console.log(e);
   }
 }
 
